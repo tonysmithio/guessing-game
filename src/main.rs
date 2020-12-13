@@ -27,7 +27,7 @@ fn main() {
       },
       Ordering::Greater => println!("Too High, try again!\n"),
       Ordering::Less => println!("Too Low, try again!\n"),
-    
+     
     }
   }  
 }
