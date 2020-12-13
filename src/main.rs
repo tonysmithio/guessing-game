@@ -13,16 +13,19 @@ fn main() {
     io::stdout().flush();
     io::stdin().read_line(&mut guess)
       .expect("Failed to read line");
+
     println!("\nYou guessed: {}",guess);
     
-    let guess:u32 = guess.trim().parse()
-      .expect("Please enter a number!");
+    let guess:u32 = match guess.trim().parse() {
+      Ok(num) => num,
+      Err(_) =>{println!("You must enter a number!!\n");continue;},
+    };
     
     match guess.cmp(&secret_num) {
       Ordering::Equal => {
         println!("You Win!\n");
         break;
-      }
+      },
       Ordering::Greater => println!("Too High, try again!\n"),
       Ordering::Less => println!("Too Low, try again!\n"),
     
