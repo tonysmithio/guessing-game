@@ -5,8 +5,8 @@ use rand::Rng;
 fn main() {
     use std::io::{self, Write};
     println!("\nIt's the Number Guessing Game!\n");
-    let secret_num = rand::Rng().gen_range(0,101);
-    println!("Here's the Secret# {} ",secret_num);
+    let secret_num = rand::thread_rng().gen_range(1,101);
+    println!("The secret number is: {}\n",secret_num);
     let mut guess = String::new();
     print!("Please enter your guess: ");
     io::stdout().flush();
