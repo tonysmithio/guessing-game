@@ -1,6 +1,6 @@
-use std::io
+use std::io;
 
-fn main(){
+fn main() {
     println!("Guess The Number");
     println!("Please enter your guess.");
     let mut guess = String::new();
