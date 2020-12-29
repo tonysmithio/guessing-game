@@ -19,8 +19,13 @@ fn main() {
     let guess:u32 = match guess.trim().parse() {
       Ok(num) => num,
       Err(_) =>{println!("You must enter a number!!");
+      n += 1;
+      if n==6 {
+        println!("You're out of retries. Better luck next time.\n");
+        break;
+        };
       continue;
-      },
+      }
     };
     
     match guess.cmp(&secret_num) {
@@ -29,19 +34,19 @@ fn main() {
         break;
       },
       Ordering::Greater => { 
-        println!("Too High, try again!\n");
         n += 1;
         if n==6 {
           println!("You're out of retries. Better luck next time.\n");
-          break;
+          break;} else {
+          println!("Too High, try again!\n");
         }
       },
       Ordering::Less => {
-        println!("Too Low, try again!\n");
         n += 1;
         if n==6 {
           println!("You're out of retries. Better luck next time.\n");
-          break;
+          break;} else {
+          println!("Too Low, try again!\n"); 
         }
       }
     }
