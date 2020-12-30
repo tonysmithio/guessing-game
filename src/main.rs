@@ -18,12 +18,14 @@ fn main() {
     
     let guess:u32 = match guess.trim().parse() {
       Ok(num) => num,
-      Err(_) =>{println!("You must enter a number!!");
+      Err(_) =>{println!("You must enter a number!!\n");
       n += 1;
       if n==6 {
         println!("You're out of retries. Better luck next time.\n");
         break;
-        };
+        } else {
+          println!("You have {} tries left\n", 6 - &n);
+        }
       continue;
       }
     };
@@ -38,7 +40,7 @@ fn main() {
         if n==6 {
           println!("You're out of retries. Better luck next time.\n");
           break;} else {
-          println!("Too High, try again!\n");
+          println!("Too High! You have {} tries left.\n", 6 - &n);
         }
       },
       Ordering::Less => {
@@ -46,7 +48,7 @@ fn main() {
         if n==6 {
           println!("You're out of retries. Better luck next time.\n");
           break;} else {
-          println!("Too Low, try again!\n"); 
+          println!("Too Low! You have {} tries left.\n", 6 - &n); 
         }
       }
     }
